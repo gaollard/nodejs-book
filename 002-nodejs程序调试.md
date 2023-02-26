@@ -1,5 +1,5 @@
 ---
-title: nodejs 程序调试配置
+title: 002 nodejs 程序调试配置
 ---
 
 ## nodejs 程序调试
@@ -74,6 +74,15 @@ listening on port 3000
 
 当我们访问 `http://localhost:3000`，就会进入暂停在断点处：
 ![20230225090028](http://s3.airtlab.com/blog/20230225090028.png)
+
+#### url 调试地址
+加入 ws 地址为：ws://127.0.0.1:9229/8e951b59-b730-41dc-a4c0-15da52b71fd3
+
+**js_app.html**
+devtools://devtools/bundled/js_app.html?experiments=true&v8only=true&ws=127.0.0.1:9229/8e951b59-b730-41dc-a4c0-15da52b71fd3
+
+**inspector.html**
+devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=127.0.0.1:9229/8e951b59-b730-41dc-a4c0-15da52b71fd3
 
 ## 3、使用 vscode 调试
 创建 `launch.json ` 文件, 格式如下：
