@@ -56,4 +56,30 @@ console.log(buf2.toString());
 // 打印: 知
 ```
 
-### 2、
+### 2、02-读取字节流
+- readUInt8 读取一个字节
+- readInt8 读取8位有符号的二进制，所以有可能会发生溢出
+```js
+const buf = Buffer.from([0xff, 0x01]);
+console.log(buf); // <Buffer ff 01>
+console.log(buf.readUInt8()); // 255
+console.log(buf.readInt8()); // -1
+```
+
+```js
+{
+  const buf = Buffer.from([0, 5]);
+  // 0000 0000 0000 0101
+  console.log(buf);
+  // <Buffer 00 05>
+
+  // 按照大端顺序读取
+  console.log(buf.readInt16BE(0));
+  // 5
+
+  // 按照小端顺序
+  // <Buffer 00 05> => <Buffer 05 00> => 5 * 16 * 16
+  console.log(buf.readInt16LE(0));
+  // 打印: 1280
+}
+```
