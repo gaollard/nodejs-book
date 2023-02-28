@@ -1,23 +1,14 @@
-# Nextra Docs Template 
+## nodejs-book
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+nodejs 学习笔记，内容非完全原创，相关内容会备注原作者。
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+感谢如下的作者，它们的文章对我帮助很大：
+- [Barret李靖](https://github.com/barretlee)
+- [doodlewind](https://www.zhihu.com/people/doodlewind)
+- [做前端的蜗牛](https://space.bilibili.com/486675132)
+- [邱昊宇](https://www.zhihu.com/people/timothyqiu)
+- [小林coding](https://xiaolincoding.com/)
+- [神说要有光](https://www.zhihu.com/people/di-xu-guang-50)
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
-
-## Quick Start
-
-Click the button to clone this repository and deploy it on Vercel:
-
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
-
-## Local Development
-
-First, run `pnpm i` to install the dependencies.
-
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
-
-## License
-
-This project is licensed under the MIT License.
+参考学习资料：
+- NodeJS 技术栈 https://www.nodejs.red/#/README

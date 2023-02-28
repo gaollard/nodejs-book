@@ -4,12 +4,13 @@ title: 001 nodejs 版本管理
 
 # nodejs版本管理
 推荐在 windows 上使用 nvm，在 mac 上则使用 n。
-
 二者主要区别如下：
-- n 的会将 nodejs 安装为全局版本，因此有可能在切换了 node 版本后发生全局模块执行出错的问题；
-- nvm 的全局模块存在于各自版本的沙箱中，切换版本后需要重新安装，不同版本间也不存在任何冲突。
+- n 会将 nodejs 安装为全局版本，因此有可能在切换 node 版本后，发生全局模块执行出错的问题；
+- nvm 则会将全局模块存在于各自版本的沙箱中，切换版本后需要重新安装，不同版本间也不存在任何冲突；
 
-对于 node bin 路径，n 存放到 /usr/local/bin，所以不需要配置环境变量就能访问了；nvm 则需要手动指定路径。
+对于 `node` 可执行文件的位置:
+- n 存放到 `/usr/local/bin`，所以不需要配置环境变量就能访问
+- nvm 则需要手动指定路径。
 
 ## 1. nvm
 nvm 全名 Node.js Version Management，在 macOS、Linux（包括适用于 Linux 的 Windows 子系统）和各种其他类 Unix 系统上均受支持。

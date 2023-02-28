@@ -123,8 +123,10 @@ console.log(buf.toString(undefined, 0, 5)); // 使用 'utf8' 编码, 并输出: 
 - fill 初始化填充的内容
 - encoding代表编码
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/271135/1677501872665-9735528a-c6ec-465d-b1cc-f1bbf6ebff2c.png#averageHue=%2344423e&clientId=u82533576-0f7d-4&from=paste&id=ub8b17775&name=image.png&originHeight=465&originWidth=640&originalType=binary&ratio=2&rotation=0&showTitle=false&size=252432&status=done&style=stroke&taskId=ud2077d8e-73e8-43e8-acee-e09a0ba7170&title=)
+![20230228202308](http://s3.airtlab.com/blog/20230228202308.png)
+
 可以看出 fil l和 encoding 之间的关系，fill 先按照 encoding 编码成二进制，然后一个字节一个字节的向此方法生成的 Buffer 中填充，根据长度 size，依次循环。
+
 ### 2.5 Buffer.from 对比
 (1) Buffer.from(array) 返回一个被 array 的值初始化的新的 Buffer 实例（传入的 array 的元素只能是数字，不然就会自动被 0 覆盖）。
 (2) Buffer.from(arrayBuffer[, byteOffset[, length]]) 返回一个新建的与给定的 ArrayBuffer 共享同一内存的 Buffer。
@@ -142,19 +144,26 @@ const buf5 = Buffer.from('tést');
 const buf6 = Buffer.from('tést', 'latin1');
 ```
 #### Buffer.from(arrayBuffer[, byteOffset[, length]])
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/271135/1677502072793-770d7214-30e0-457e-9dd8-31eb46d7b656.png#averageHue=%23060605&clientId=u82533576-0f7d-4&from=paste&id=uaafe54da&name=image.png&originHeight=502&originWidth=612&originalType=binary&ratio=2&rotation=0&showTitle=false&size=149336&status=done&style=stroke&taskId=uf5c3070e-8137-433d-99e6-ce01a9abbb3&title=)
+![20230228202419](http://s3.airtlab.com/blog/20230228202419.png)
+
 将一个二进制数组`[5000, 4000]` 放入 Buffer中生成了 `<88 a0>`，因为 Buffer 实例是 Uint8Array 的实例，此时相当于把 arr 放入 Uint8Array 中，元素一一对应，而 Uint8Array 每个元素都是8位，最大值是256，所以发生了溢出，根据溢出的算法最终变为了<88 a0>。
 
 如果不想发生溢出，可以使用二进制数组的buffer属性（此时会共享内存）：
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/271135/1677502484430-2917a054-9880-4479-873c-0fc1272fc350.png#averageHue=%2349473a&clientId=u2a68e916-b56b-4&from=paste&id=u07a183bd&name=image.png&originHeight=270&originWidth=622&originalType=binary&ratio=2&rotation=0&showTitle=false&size=123066&status=done&style=stroke&taskId=uba4bfd2f-6457-4a24-977a-4dd4cea8e1a&title=)
+
+![20230228202649](http://s3.airtlab.com/blog/20230228202649.png)
+
 可选的byteOffset和length参数指定 arrayBuffer 中与 Buffer 共享的内存范围，如果不使用buffer属性，这两个参数并不会生效。
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/271135/1677502596926-1de324c0-a30b-4322-8d5c-24de78abb7cf.png#averageHue=%2348473e&clientId=u2a68e916-b56b-4&from=paste&id=u0d0f0090&name=image.png&originHeight=470&originWidth=604&originalType=binary&ratio=2&rotation=0&showTitle=false&size=184601&status=done&style=stroke&taskId=uc82c830e-8bb2-4596-898c-c068d9df396&title=)
+
+![20230228202659](http://s3.airtlab.com/blog/20230228202659.png)
+
 可选的 byteOffset 和 length 参数指定 arrayBuffer 中与 Buffer 共享的内存范围，如果不使用buffer属性，这两个参数并不会生效：
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/271135/1677503066446-ebf60525-9dd0-4ab0-9558-7a797926962f.png#averageHue=%2348473e&clientId=ubd0bbb6c-5fc5-4&from=paste&id=ue9ffc40e&name=image.png&originHeight=470&originWidth=604&originalType=binary&ratio=2&rotation=0&showTitle=false&size=184601&status=done&style=stroke&taskId=u08d176d6-6a77-4dc4-9c9e-454104bc9fc&title=)
+![20230228202715](http://s3.airtlab.com/blog/20230228202715.png)
+
 ## 3、读字节流
 ### 3.1 readUInt8/readInt8
 读取一个字节的有/无符号的整数
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/271135/1677503155921-4f70366f-15d2-4764-91da-3ac3f05d146d.png#averageHue=%23040403&clientId=ubd0bbb6c-5fc5-4&from=paste&id=u5d7de476&name=image.png&originHeight=330&originWidth=640&originalType=binary&ratio=2&rotation=0&showTitle=false&size=76684&status=done&style=stroke&taskId=u017602f2-087c-44c9-b32a-fbb7e10bffa&title=)
+
+![20230228202626](http://s3.airtlab.com/blog/20230228202626.png)
 
 - readUInt8 直接读取一个字节的二进制
 - readInt8 读取8位有符号的二进制，所以有可能会发生溢出，溢出的算法之前已经提到了
@@ -170,7 +179,8 @@ const buf6 = Buffer.from('tést', 'latin1');
 - BE 代表大端字节序，高位在前，网络就是这种字节序
 - LE 代表小端字节序，低位在前
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/271135/1677503241537-5bcd11d1-473b-4675-8e63-60ee6ecbc523.png#averageHue=%23050505&clientId=ubd0bbb6c-5fc5-4&from=paste&id=u126350b3&name=image.png&originHeight=357&originWidth=640&originalType=binary&ratio=2&rotation=0&showTitle=false&size=93219&status=done&style=stroke&taskId=u47dbd8d3-f562-41d3-9e03-17d2777d941&title=)
+![20230228202551](http://s3.airtlab.com/blog/20230228202551.png)
+
 ```javascript
 const buf = Buffer.from([0xff, 0x01, 0x08, 0x05]);
 console.log(buf);
