@@ -1,5 +1,5 @@
 ---
-title: 004 理解字符串编码
+title: 004 理解字符编码
 ---
 
 > - ASCII编码转换 https://www.qqxiuzi.cn/bianma/ascii.htm
