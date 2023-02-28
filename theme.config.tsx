@@ -1,8 +1,9 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import { Footer } from './components/Footer'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <span>nodejs 学习笔记</span>,
   project: {
     link: 'https://github.com/shuding/nextra-docs-template',
   },
@@ -11,8 +12,8 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
-    text: 'Nextra Docs Template',
-  },
+    component: Footer
+  }
 }
 
 export default config

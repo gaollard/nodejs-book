@@ -1,0 +1,16 @@
+{
+  "index": "前言介绍",
+  "nodejs-basic": "夯实基础",
+  "nodejs-core": "核心知识",
+  "another": "Another Page",
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://twitter.com/shuding_",
+    "newWindow": true
+  }
+}
