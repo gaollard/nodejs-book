@@ -1,5 +1,5 @@
 ---
-title: 006 buffer操作二进制数
+title: 007 buffer操作二进制数
 ---
 
 > 部分内容参考 《针对Node的Buffer模块中难理解的API做一次彻底的讲解》https://www.bilibili.com/read/cv4881167?spm_id_from=333.999.0.0

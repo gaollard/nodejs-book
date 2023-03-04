@@ -1,5 +1,5 @@
 ---
-title: 005 二进制数
+title: 006 二进制数
 ---
 
 > 在线进制转换 https://www.sojson.com/hexconvert.html

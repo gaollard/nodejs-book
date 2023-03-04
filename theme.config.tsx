@@ -2,6 +2,7 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import { Footer } from './components/Footer'
 import { Profile } from './components/Profile'
+import favicon from './assets/favicon.ico';
 
 const config: DocsThemeConfig = {
   logo: <span>nodejs 学习笔记</span>,
@@ -10,7 +11,8 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 1
   },
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    // link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/gaollard/nodejs-book'
   },
   chat: {
     link: 'https://discord.com',
@@ -19,7 +21,8 @@ const config: DocsThemeConfig = {
   footer: {
     // component: Profile
     component: Footer
-  }
+  },
+  faviconGlyph: '🪐'
 }
 
 export default config
